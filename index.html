@@ -4,10 +4,38 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="css/styles.css" />
         <title>Color tool</title>
     </head>
     <body>
+        <img class="bg_img" src="assets/Colouring_pencils.jpg" alt="pencils" />
+        <div class="container">
+            <h1 class="title">Colors</h1>
+            <h1 class="title">Lighter / Darker</h1>
+            <label for="hex">Color(hex)</label>
+            <input
+                class="hex_input"
+                type="text"
+                name="hex"
+                placeholder="#000000"
+            />
+            <div class="colors">
+                <p><strong>Base Color</strong></p>
+                <div id="inputColor" class="box">color 1</div>
+                <p><strong>Color Output</strong></p>
+                <div id="alteredColor" class="box">color 2</div>
+            </div>
+            <label for="slider">0%</label>
+            <input
+                id="slider"
+                class="slider"
+                name="slider"
+                type="range"
+                min="0"
+                max="100"
+                value="0"
+            />
+        </div>
         <script src="js/script.js"></script>
     </body>
 </html>

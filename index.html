@@ -14,31 +14,34 @@
             <h1 class="title">Lighter / Darker</h1>
             <label for="hex">Color(hex)</label>
             <input
+                id="hexInput"
                 class="hex_input"
                 type="text"
                 name="hex"
                 placeholder="#000000"
             />
             <div class="colors">
-                <div>
-                    <p><strong>Base Color</strong></p>
+                <div class="color">
+                    <p class="color"><strong>Base Color</strong></p>
                     <div id="inputColor" class="box"></div>
                 </div>
-                <div>
+                <div class="color">
                     <p><strong>Color Output</strong></p>
                     <div id="alteredColor" class="box"></div>
                 </div>
             </div>
-            <label for="slider">0%</label>
-            <input
-                id="slider"
-                class="slider"
-                name="slider"
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-            />
+            <div class="slider_el">
+                <label for="slider">0%</label>
+                <input
+                    id="slider"
+                    class="slider"
+                    name="slider"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="0"
+                />
+            </div>
         </div>
         <script src="js/script.js"></script>
     </body>

@@ -41,5 +41,5 @@ const converetHexToRGB = (hex) => {
     //should return an object with 3 properties - r,g, and b
     return { r, g, b };
 };
-//Test your function with a few different use cases
-console.log(converetHexToRGB("ffe"));
+//Test function with a few different use cases
+//console.log(converetHexToRGB("ffe"));

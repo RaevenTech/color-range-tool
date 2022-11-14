@@ -1,5 +1,8 @@
-let hexInput = document.getElementById("hexInput");
-let inputColor = document.getElementById("inputColor");
+const hexInput = document.getElementById("hexInput");
+const inputColor = document.getElementById("inputColor");
+const sliderText = document.getElementById("sliderText");
+const slider = document.getElementById("slider");
+
 //Create a keyup event handler for hexInput
 hexInput.addEventListener("keyup", () => {
     const hex = hexInput.value;
@@ -53,3 +56,30 @@ const convertRGBToHex = (r, g, b) => {
     const hex = "#" + firstPair + secondPair + thirdPair;
     return hex;
 };
+
+// function to alter the color from value to percentage
+const alterColor = (hex, percentage) => {
+    const { r, g, b } = converetHexToRGB(hex);
+    const amount = Math.floor((percentage / 100) * 255);
+
+    const newR = increaseWithin0To255(r, amount);
+    const newG = increaseWithin0To255(g, amount);
+    const newB = increaseWithin0To255(b, amount);
+    console.log({ newR, newG, newB });
+    return convertRGBToHex(newR, newG, newB);
+};
+
+const increaseWithin0To255 = (hex, amount) => {
+    const newHex = hex + amount;
+    if (newHex > 255) return 255;
+    if (newHex < 0) return 0;
+    return newHex;
+};
+
+console.log(alterColor("fff", 10));
+
+// add event listner for the range input
+slider.addEventListener("input", () => {
+    sliderText.textContent = slider.value + "%";
+    //console.log(slider.value);
+});

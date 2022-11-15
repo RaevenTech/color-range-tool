@@ -19,6 +19,7 @@ toggleBtn.addEventListener("click", () => {
         lightenText.classList.add("unselected");
         darkenText.classList.remove("unselected");
     }
+    reset();
 });
 //Create a keyup event handler for hexInput
 hexInput.addEventListener("keyup", () => {
@@ -29,6 +30,7 @@ hexInput.addEventListener("keyup", () => {
     const strippedHex = hex.replace("#", "");
     //If hex color is valid, update the background color of inputColor
     inputColor.style.backgroundColor = "#" + strippedHex;
+    reset();
 });
 
 // function to check if hex code is a valid hex code
@@ -100,8 +102,20 @@ slider.addEventListener("input", () => {
     if (!isValidHex(hexInput.value)) return;
 
     sliderText.textContent = slider.value + "%";
-    const alteredHex = alterColor(hexInput.value, slider.value);
+
+    const darkenValue = toggleBtn.classList.contains("toggled")
+        ? -slider.value
+        : slider.value;
+
+    const alteredHex = alterColor(hexInput.value, darkenValue);
     alteredColor.style.backgroundColor = alteredHex;
     alteredColorText.innerText = "Color Output: " + alteredHex;
     //console.log(slider.value);
 });
+
+const reset = () => {
+    slider.value = 0;
+    sliderText.innerText = "0%";
+    alteredColor.style.backgroundColor = hexInput.value;
+    alteredColorText.innerText = "Color Output: " + hexInput.value;
+};

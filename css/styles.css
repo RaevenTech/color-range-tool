@@ -23,7 +23,13 @@ body {
 .hex_input:focus {
     outline: none;
 }
-
+.title {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.title_span {
+    color: rgb(156, 156, 156);
+}
 .hex_input::placeholder {
     padding-left: .3em;
 }
@@ -74,4 +80,20 @@ body {
 }
 .unselected {
     opacity: .25;
+}
+/*-- links --*/
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.link_btn {
+    color: red;
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.link_btn:hover {
+    transform: scale(1.1);    
 }

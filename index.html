@@ -19,6 +19,7 @@
                 type="text"
                 name="hex"
                 placeholder="#000000"
+                value="#c6d5ac"
             />
             <div class="colors">
                 <div class="color">
@@ -26,7 +27,7 @@
                     <div id="inputColor" class="box"></div>
                 </div>
                 <div class="color">
-                    <p><strong>Color Output</strong></p>
+                    <p><strong id="alteredColorText">Color Output</strong></p>
                     <div id="alteredColor" class="box"></div>
                 </div>
             </div>
@@ -41,6 +42,17 @@
                     max="100"
                     value="0"
                 />
+            </div>
+            <div class="toggle">
+                <p id="lightenText" class="toggle_text">
+                    <small>Lighten</small>
+                </p>
+                <div id="toggleBtn" class="toggle_btn">
+                    <div class="inner_circle"></div>
+                </div>
+                <p id="darkenText" class="toggle_text">
+                    <small>Darken</small>
+                </p>
             </div>
         </div>
         <script src="js/script.js"></script>

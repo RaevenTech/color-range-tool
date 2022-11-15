@@ -1,8 +1,25 @@
 const hexInput = document.getElementById("hexInput");
 const inputColor = document.getElementById("inputColor");
+const alteredColor = document.getElementById("alteredColor");
+const alteredColorText = document.getElementById("alteredColorText");
 const sliderText = document.getElementById("sliderText");
+const lightenText = document.getElementById("lightenText");
+const darkenText = document.getElementById("darkenText");
+const toggleBtn = document.getElementById("toggleBtn");
 const slider = document.getElementById("slider");
 
+// click event listner to toggle Btn
+toggleBtn.addEventListener("click", () => {
+    if (toggleBtn.classList.contains("toggled")) {
+        toggleBtn.classList.remove("toggled");
+        lightenText.classList.remove("unselected");
+        darkenText.classList.add("unselected");
+    } else {
+        toggleBtn.classList.add("toggled");
+        lightenText.classList.add("unselected");
+        darkenText.classList.remove("unselected");
+    }
+});
 //Create a keyup event handler for hexInput
 hexInput.addEventListener("keyup", () => {
     const hex = hexInput.value;
@@ -14,7 +31,7 @@ hexInput.addEventListener("keyup", () => {
     inputColor.style.backgroundColor = "#" + strippedHex;
 });
 
-// frunction to check if hex code is a valid hex code
+// function to check if hex code is a valid hex code
 const isValidHex = (hex) => {
     if (!hex) return false;
     // fromve the "#" form the hex code
@@ -65,7 +82,7 @@ const alterColor = (hex, percentage) => {
     const newR = increaseWithin0To255(r, amount);
     const newG = increaseWithin0To255(g, amount);
     const newB = increaseWithin0To255(b, amount);
-    console.log({ newR, newG, newB });
+    //console.log({ newR, newG, newB });
     return convertRGBToHex(newR, newG, newB);
 };
 
@@ -76,10 +93,15 @@ const increaseWithin0To255 = (hex, amount) => {
     return newHex;
 };
 
-console.log(alterColor("fff", 10));
+alterColor("fff", 10);
 
 // add event listner for the range input
 slider.addEventListener("input", () => {
+    if (!isValidHex(hexInput.value)) return;
+
     sliderText.textContent = slider.value + "%";
+    const alteredHex = alterColor(hexInput.value, slider.value);
+    alteredColor.style.backgroundColor = alteredHex;
+    alteredColorText.innerText = "Color Output: " + alteredHex;
     //console.log(slider.value);
 });

@@ -42,3 +42,32 @@ body {
 .slider_el {
     margin-top: 1em;
 }
+/*-- toggle button --*/
+
+.toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.toggle_btn {
+    width: 40px;
+    height: 20px;
+    background-color: gray;
+    border-radius: 30px;
+    padding: 2px;
+    margin: 0 10px;
+}
+.inner_circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    transition: all .25s;
+}
+.toggle_btn.toggled > .inner_circle {
+    transform: translateX(20px);
+    background-color: #333;
+}
+.unselected {
+    opacity: .25;
+}
